@@ -21,6 +21,13 @@ public class TypeOfClass {
     @Column(nullable = false)
     private Integer yearTaught;
 
+    @ManyToOne
+    @JoinColumn(nullable = false)
+    private Teacher teacher;
+
+    @ManyToOne
+    @JoinColumn(nullable = false)
+    private Subject subject;
 
     @ManyToMany(mappedBy = "typeOfClasses")
     private List<Student> students = new ArrayList<Student>();
