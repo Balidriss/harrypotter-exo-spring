@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.Data;
 
+import java.util.List;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -20,5 +22,9 @@ public class HousePoint {
 
     @Column(nullable = false)
     private Integer totalPoint;
+
+    @ManyToOne
+    @JoinColumn(nullable = false)
+    private House house;
 
 }

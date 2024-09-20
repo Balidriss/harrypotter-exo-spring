@@ -30,6 +30,5 @@ public class House {
     @JoinColumn(nullable = false)
     private List<Student> students;
 
-    //house points
 
 }
