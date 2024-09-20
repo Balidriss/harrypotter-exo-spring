@@ -23,6 +23,12 @@ public class OffenseList {
     @Column
     private Integer offenseSeriousness;
 
-    //offense
+    @ManyToOne
+    @JoinColumn( nullable = false)
+    private Student student;
+
+    @ManyToOne
+    @JoinColumn(nullable = false)
+    private Offense offense;
 
 }
