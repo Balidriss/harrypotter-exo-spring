@@ -5,7 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.Data;
 
-import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -21,5 +22,6 @@ public class TypeOfClass {
     private Integer yearTaught;
 
 
-    // manymany student
+    @ManyToMany(mappedBy = "typeOfClasses")
+    private List<Student> students = new ArrayList<Student>();
 }

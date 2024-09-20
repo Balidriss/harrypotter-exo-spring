@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.Data;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -26,6 +28,8 @@ public class Student {
     @Column(nullable = false)
     private boolean isAlive;
 
-    //house
+    @ManyToMany
+    @JoinTable(name = "student_type_of_class")
+    private List<TypeOfClass> typeOfClasses = new ArrayList<TypeOfClass>();
 
 }
