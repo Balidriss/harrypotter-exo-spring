@@ -26,5 +26,7 @@ public class House {
     @Column(nullable = false)
     private String founderLastName;
 
+    @OneToMany(mappedBy = "house")
+    private List<Student> students;
 
 }
