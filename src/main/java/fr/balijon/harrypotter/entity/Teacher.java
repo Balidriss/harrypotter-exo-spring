@@ -5,6 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.Data;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -17,5 +20,8 @@ public class Teacher {
 
     @Column(nullable = false)
     private String name;
+
+    @OneToMany(mappedBy = "teacher")
+    private List<TypeOfClass> typeOfClasses = new ArrayList<TypeOfClass>();
 
 }
