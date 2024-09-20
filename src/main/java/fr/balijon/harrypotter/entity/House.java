@@ -26,9 +26,5 @@ public class House {
     @Column(nullable = false)
     private String founderLastName;
 
-    @OneToMany
-    @JoinColumn(nullable = false)
-    private List<Student> students;
-
 
 }

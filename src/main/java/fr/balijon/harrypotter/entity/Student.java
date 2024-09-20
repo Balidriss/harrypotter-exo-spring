@@ -23,13 +23,17 @@ public class Student {
     private String name;
 
     @Column(nullable = false)
-    private LocalDate yearOfBirth;
+    private Integer yearOfBirth;
 
     @Column(nullable = false)
     private boolean isAlive;
 
     @ManyToMany
-    @JoinTable(name = "student_type_of_class")
+    @JoinTable(
+            name = "student_type_of_class",
+            joinColumns = @JoinColumn(name = "student_id"),  // Column name in the join table for the student
+            inverseJoinColumns = @JoinColumn(name = "type_of_class_id")  // Column name for the TypeOfClass
+    )
     private List<TypeOfClass> typeOfClasses = new ArrayList<TypeOfClass>();
 
     @ManyToOne
