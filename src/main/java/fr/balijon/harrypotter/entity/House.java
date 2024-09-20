@@ -29,4 +29,7 @@ public class House {
     @OneToMany(mappedBy = "house")
     private List<Student> students;
 
+    @OneToMany(mappedBy = "house")
+    private List<HousePoint> housePoints;
+
 }
