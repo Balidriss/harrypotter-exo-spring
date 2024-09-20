@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1:3307
--- Généré le : ven. 20 sep. 2024 à 07:01
--- Version du serveur : 10.4.13-MariaDB
--- Version de PHP : 8.0.22
+-- Hôte : 127.0.0.1:3306
+-- Généré le : ven. 20 sep. 2024 à 08:48
+-- Version du serveur : 11.3.2-MariaDB
+-- Version de PHP : 8.2.18
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -53,9 +53,9 @@ DELIMITER ;
 DROP TABLE IF EXISTS `house`;
 CREATE TABLE IF NOT EXISTS `house` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `house_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `founder_first_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `founder_last_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `house_name` varchar(255) NOT NULL,
+  `founder_first_name` varchar(255) NOT NULL,
+  `founder_last_name` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -107,21 +107,6 @@ VALUES
 END
 $$
 DELIMITER ;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `house_history`
---
-
-DROP TABLE IF EXISTS `house_history`;
-CREATE TABLE IF NOT EXISTS `house_history` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `old_house_name` varchar(255) NOT NULL,
-  `old_founder_first_name` varchar(255) NOT NULL,
-  `old_founder_last_name` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -281,7 +266,7 @@ CREATE TABLE IF NOT EXISTS `offense` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `label` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 
 --
 -- Déchargement des données de la table `offense`
@@ -308,7 +293,7 @@ CREATE TABLE IF NOT EXISTS `offense_list` (
   PRIMARY KEY (`id`),
   KEY `student_id` (`student_id`),
   KEY `offense_id` (`offense_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 
 --
 -- Déchargement des données de la table `offense_list`
@@ -337,7 +322,7 @@ CREATE TABLE IF NOT EXISTS `student` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `house_id` int(11) NOT NULL,
   `year_of_birth` int(11) NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) NOT NULL,
   `is_alive` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_B723AF336BB74515` (`house_id`)
@@ -10583,7 +10568,7 @@ INSERT INTO `student_type_of_class` (`student_id`, `type_of_class_id`) VALUES
 DROP TABLE IF EXISTS `subject`;
 CREATE TABLE IF NOT EXISTS `subject` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `subject_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `subject_name` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -10610,7 +10595,7 @@ INSERT INTO `subject` (`id`, `subject_name`) VALUES
 DROP TABLE IF EXISTS `teacher`;
 CREATE TABLE IF NOT EXISTS `teacher` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=192 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
