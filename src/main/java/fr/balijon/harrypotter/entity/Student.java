@@ -28,6 +28,9 @@ public class Student {
     @Column(nullable = false)
     private boolean isAlive;
 
+    @OneToMany(mappedBy = "student")
+    private List<OffenseList> offenseLists = new ArrayList<OffenseList>();
+
     @ManyToMany
     @JoinTable(
             name = "student_type_of_class",
