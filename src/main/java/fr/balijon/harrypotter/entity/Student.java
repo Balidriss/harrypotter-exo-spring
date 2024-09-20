@@ -32,4 +32,7 @@ public class Student {
     @JoinTable(name = "student_type_of_class")
     private List<TypeOfClass> typeOfClasses = new ArrayList<TypeOfClass>();
 
+    @ManyToOne
+    @JoinColumn(nullable = false)
+    private House house;
 }

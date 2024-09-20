@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.Data;
 
+import java.util.List;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -24,7 +26,9 @@ public class House {
     @Column(nullable = false)
     private String founderLastName;
 
-    //students
+    @OneToMany
+    @JoinColumn(nullable = false)
+    private List<Student> students;
 
     //house points
 
